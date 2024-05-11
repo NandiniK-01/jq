@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Department Viewer</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        // Sample department data
+        var departments = [
+            { name: "Computer Science", info: "Information about Computer Science department" },
+            { name: "Psychology", info: "Information about Psychology department" },
+            { name: "Mathematics", info: "Information about Mathematics department" },
+            { name: "Music", info: "Information about Music department" },
+            { name: "Chemistry", info: "Information about Chemistry department" },
+            // Add more departments as needed
+        ];
+    
+        $(document).on("pagecreate", "#home", function () {
+            // Add department names to the grid
+            var grid = $("#departmentGrid");
+            $.each(departments, function (index, department) {
+                grid.append('<div class="ui-block-b"><a href="#departmentInfo?dept=' + index + '" data-transition="slide" class="ui-btn ui-shadow ui-corner-all departmentButton">' + department.name + '</a></div>');
+            });
+        });
+    
+        $(document).on("pagebeforeshow", "#departmentInfo", function () {
+            // Display department information on department info page
+            var departmentIndex = $(this).data("url").split("=")[1];
+            var department = departments[departmentIndex];
+            $("#departmentInfoContent").html("<p>" + department.info + "</p>");
+        });
+    </script>
+</head>
+<body>
+<!-- home -->
+<div data-role="page" id="home" style="background-color:rgb(247, 250, 230);">
+    <div data-role="header">
+        <h1>Yale University</h1>
+        
+         <h4> Where curiosity meets excellence!</h4>
+         <h2>Departments</h2>
+        
+    </div>
+
+    <div data-role="content">
+        <div class="ui-grid-d ui-responsive">
+            <div class="ui-block-a" style="width: 20%;"><a href="#cs" class="ui-btn ui-shadow ui-corner-all" data-ajax="false">Computer Science</a></div>
+            <div class="ui-block-b" style="width: 20%;"><a href="#psych" class="ui-btn ui-shadow ui-corner-all" data-ajax="false">Psychology</a></div>
+            <div class="ui-block-c" style="width: 20%;"><a href="#math" class="ui-btn ui-shadow ui-corner-all" data-ajax="false">Mathematics</a></div>
+            <div class="ui-block-d" style="width: 20%;"><a href="#music" class="ui-btn ui-shadow ui-corner-all" data-ajax="false">Music</a></div>
+            <div class="ui-block-e" style="width: 20%;"><a href="#chem" class="ui-btn ui-shadow ui-corner-all" data-ajax="false">Chemistry</a></div>
+        </div>
+    </div>
+    
+    
+</div>
+
+<!-- cs page -->
+<div data-role="page" id="cs">
+    <div data-role="header">
+        <h1>Computer Science Department</h1>
+    </div>
+    <div data-role="content">
+        <h2>Welcome to the Computer Science Department!</h2>
+        <p>Empowering tomorrow's innovators through cutting-edge computing and visionary research at Yale's CS Department.</p>
+    </div>
+<div class="grid">
+    <img src="cs.webp" alt="" height="250px" width="30%" >
+    <img src="cs1.jpeg" alt="" height="250px" width="30%" >
+    <!-- <img src="vintage poster.jpg" alt="" height="250px" width="30%" >  -->
+ </div>
+ <div data-role="content">
+    <p>At the Yale University Computer Science Department, we are dedicated to advancing knowledge and understanding in computer science and preparing our students for careers in technology and innovation.</p>
+</div>
+    <div data-role="footer">
+        <h4>Yale University</h4>
+    </div>
+</div>
+
+<!-- psychology page -->
+<div data-role="page" id="psych">
+    <div data-role="header">
+        <h1>Psychology Department</h1>
+    </div>
+    
+    <div data-role="content">
+        <h2>Welcome to the Psychology Department!</h2>
+        <p>Unraveling the mysteries of the mind: Explore the human psyche with our innovative Psychology Department at Yale University.</p>
+    </div>
+    <div class="grid">
+        <img src="psych2.webp" alt="" height="250px" width="30%" >
+        <img src="happy.png" alt="" height="250px" width="30%" >
+        <!-- <img src="vintage poster.jpg" alt="" height="250px" width="30%" >  -->
+     </div>
+     <div data-role="content">
+     <p>At Yale's Psychology Department, we are dedicated to exploring the depths of human behavior and cognition through rigorous research, innovative teaching, and engaged community involvement. As one of the leading psychology departments in the world, we offer a diverse range of courses and research opportunities that delve into various aspects of the human mind and behavior.</p>
+     </div>
+   
+     <div data-role="footer">
+        <h4>Yale University</h4>
+    </div>
+</div>
+
+
+<!-- math page -->
+<div data-role="page" id="math">
+    <div data-role="header">
+        <h1>Mathematics Department</h1>
+    </div>
+    <div data-role="content">
+        <h2>Welcome to the Mathematics Department!</h2>
+        <p>Exploring the infinite possibilities of numbers and equations at the forefront of mathematical discovery.</p>
+    </div>
+    <div class="grid">
+        <img src="m.webp" alt="" height="250px" width="30%" >
+        <img src="m1.webp" alt="" height="250px" width="30%" >
+        <!-- <img src="vintage poster.jpg" alt="" height="250px" width="30%" >  -->
+     </div>
+     <div data-role="content">
+        <p>At the Yale University Computer Science Department, we are dedicated to advancing knowledge and understanding in computer science and preparing our students for careers in technology and innovation.</p>
+    </div>
+    <div data-role="footer">
+        <h4>Yale University</h4>
+    </div>
+</div>
+
+<!-- music page -->
+<div data-role="page" id="music">
+    <div data-role="header">
+        <h1>Music Department</h1>
+    </div>
+    <div data-role="content">
+        <h2>Welcome to the Music Department!</h2>
+        <p>Harmonizing creativity and scholarship, the Music Department at Yale University inspires passion and innovation in every note.</p>
+    </div>
+<div class="grid">
+    <img src="mu.jpeg" alt="" height="250px" width="30%" >
+    <img src="mu1.jpg" alt="" height="250px" width="30%" >
+    <!-- <img src="vintage poster.jpg" alt="" height="250px" width="30%" >  -->
+ </div>
+ <div data-role="content">
+    <p>Welcome to the Music Department at Yale University, where passion meets precision and creativity thrives. Our department offers a rich array of opportunities for students to explore the world of music through performance, composition, scholarship, and more.</p>
+    </div>
+
+    <div data-role="footer">
+        <h4>Yale University</h4>
+    </div>
+</div>
+
+
+<!-- chem page -->
+<div data-role="page" id="chem">
+    <div data-role="header">
+        <h1>Chemistry Department</h1>
+    </div>
+    <div data-role="content">
+        <h2>Welcome to the Chemistry Department!</h2>
+        <p>Exploring the molecules of tomorrow, today: Welcome to the Chemistry Department at Yale University.</p>
+    </div>
+    <div class="grid">
+        <img src="c.jpg" alt="" height="250px" width="30%" >
+        <img src="c2.jpg" alt="" height="250px" width="30%" >
+        <!-- <img src="vintage poster.jpg" alt="" height="250px" width="30%" >  -->
+     </div>
+     <div data-role="content">
+     <p>The Chemistry Department at Yale is renowned for its pioneering research and commitment to excellence in education. Our faculty members are leaders in their fields, driving discoveries that address some of the most pressing challenges facing society today.</p>
+     </div>
+   
+     <div data-role="footer">
+        <h4>Yale University</h4>
+    </div>
+</div>
+
+
+</body>
+</html>
