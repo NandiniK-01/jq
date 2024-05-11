@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="homePage">
+    <div data-role="header">
+        <h1>Restaurant Menu</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true">
+            <li><a href="#menuItem1">Pizza</a></li>
+            <li><a href="#menuItem2">Burger</a></li>
+            <li><a href="#menuItem3">Pasta</a></li>
+        </ul>
+    </div>
+
+    <div data-role="footer">
+        <h4>Restaurant Name</h4>
+    </div>
+</div>
+
+<!-- Menu Item 1 Page -->
+<div data-role="page" id="menuItem1">
+    <div data-role="header">
+        <h1>Pizza</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <img src="https://via.placeholder.com/300" alt="Pizza">
+        <p>Description: Delicious pizza topped with cheese, tomato sauce, and your choice of toppings.</p>
+        <p>Price: $10</p>
+    </div>
+
+    <div data-role="footer">
+        <a href="#homePage" data-role="button" data-icon="home">Home</a>
+    </div>
+</div>
+
+<!-- Menu Item 2 Page -->
+<div data-role="page" id="menuItem2">
+    <div data-role="header">
+        <h1>Burger</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <img src="https://via.placeholder.com/300" alt="Burger">
+        <p>Description: Juicy beef patty served with lettuce, tomato, onion, and special sauce on a sesame seed bun.</p>
+        <p>Price: $8</p>
+    </div>
+
+    <div data-role="footer">
+        <a href="#homePage" data-role="button" data-icon="home">Home</a>
+    </div>
+</div>
+
+<!-- Menu Item 3 Page -->
+<div data-role="page" id="menuItem3">
+    <div data-role="header">
+        <h1>Pasta</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <img src="https://via.placeholder.com/300" alt="Pasta">
+        <p>Description: Spaghetti pasta tossed in marinara sauce with fresh basil and grated parmesan cheese.</p>
+        <p>Price: $12</p>
+    </div>
+
+    <div data-role="footer">
+        <a href="#homePage" data-role="button" data-icon="home">Home</a>
+    </div>
+</div>
+
+</body>
+</html>

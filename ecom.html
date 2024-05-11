@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Shopping</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Product Page -->
+<div data-role="page" id="productPage">
+    <div data-role="header">
+        <h1>Products</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true">
+            <li><a href="#productDetailsPage" data-transition="slide">Product A</a></li>
+            <li><a href="#productDetailsPage" data-transition="slide">Product B</a></li>
+            <li><a href="#productDetailsPage" data-transition="slide">Product C</a></li>
+            <!-- Add more products as needed -->
+        </ul>
+    </div>
+
+    <div data-role="footer">
+        <h4>E-Commerce Shopping</h4>
+    </div>
+</div>
+
+<!-- Product Details Page -->
+<div data-role="page" id="productDetailsPage">
+    <div data-role="header">
+        <a href="#productPage" data-role="button" data-icon="arrow-l" data-transition="slide" data-direction="reverse">Back</a>
+        <h1>Product Details</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <h2>Product Name</h2>
+        <p>Description of the product...</p>
+        <p>Price: $XX.XX</p>
+        <a href="#cartPage" data-role="button" data-icon="plus" data-iconpos="right" id="addToCartBtn">Add to Cart</a>
+    </div>
+
+    <div data-role="footer">
+        <h4>E-Commerce Shopping</h4>
+    </div>
+</div>
+
+<!-- Cart Page -->
+<div data-role="page" id="cartPage">
+    <div data-role="header">
+        <a href="#productPage" data-role="button" data-icon="arrow-l" data-transition="slide" data-direction="reverse">Back</a>
+        <h1>Shopping Cart</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true" id="cartItems">
+            <!-- Cart items will be displayed here -->
+        </ul>
+    </div>
+
+    <div data-role="footer">
+        <h4>E-Commerce Shopping</h4>
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", "#productDetailsPage", function () {
+        $("#addToCartBtn").click(function () {
+            const productName = $("#productDetailsPage h2").text();
+            const price = $("#productDetailsPage p:nth-child(3)").text().replace("Price: ", "");
+
+            // Add product to cart
+            addToCart(productName, price);
+
+            // Show alert
+            alert("Product added to cart!");
+        });
+    });
+
+    function addToCart(productName, price) {
+        $("#cartItems").append(`
+            <li>
+                <h2>${productName}</h2>
+                <p>Price: ${price}</p>
+            </li>
+        `).listview("refresh"); // Refresh listview to apply styles
+    }
+</script>
+
+</body>
+</html>

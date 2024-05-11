@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Search</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Search Page -->
+<div data-role="page" id="searchPage">
+    <div data-role="header">
+        <h1>Hotel Search</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <form id="searchForm">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin">
+
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout">
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests">
+
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <div data-role="footer">
+        <h4>Hotel Search App</h4>
+    </div>
+</div>
+
+<!-- Results Page -->
+<div data-role="page" id="resultsPage">
+    <div data-role="header">
+        <h1>Search Results</h1>
+    </div>
+
+    <div data-role="main" class="ui-content" id="searchResults">
+        <!-- Search results will be displayed here -->
+    </div>
+
+    <div data-role="footer">
+        <a href="#searchPage" data-role="button" data-icon="arrow-l" data-transition="slide" data-direction="reverse">Back</a>
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", "#searchPage", function () {
+        $("#searchForm").submit(function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve search parameters
+            const location = $("#location").val();
+            const checkin = $("#checkin").val();
+            const checkout = $("#checkout").val();
+            const guests = $("#guests").val();
+
+            // Perform hotel search based on parameters (dummy example)
+            // Replace this with actual search logic
+            const searchResults = [
+                { name: "Hotel A", location: "Location A", price: "$100" },
+                { name: "Hotel B", location: "Location B", price: "$120" },
+                { name: "Hotel C", location: "Location C", price: "$150" }
+            ];
+
+            // Display search results
+            displayResults(searchResults);
+        });
+    });
+
+    function displayResults(results) {
+        $("#searchResults").empty(); // Clear previous results
+
+        results.forEach(function (hotel) {
+            $("#searchResults").append(`
+                <div>
+                    <h2>${hotel.name}</h2>
+                    <p><strong>Location:</strong> ${hotel.location}</p>
+                    <p><strong>Price:</strong> ${hotel.price}</p>
+                </div>
+            `);
+        });
+
+        // Navigate to results page
+        $.mobile.changePage("#resultsPage");
+    }
+</script>
+
+</body>
+</html>
